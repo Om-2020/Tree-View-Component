@@ -14,22 +14,30 @@ const initialData: TreeNodeType[] = [
   },
 ];
 
+const findNode = (
+  nodes: TreeNodeType[],
+  id: string
+): TreeNodeType | null => {
+  for (const node of nodes) {
+    if (node.id === id) return node;
+
+    if (node.children?.length) {
+      const found = findNode(node.children, id);
+      if (found) return found;
+    }
+  }
+  return null;
+};
+
 export default function TreeView() {
   const [tree, setTree] = useState<TreeNodeType[]>(initialData);
 
   const toggle = async (id: string) => {
-    let target: TreeNodeType | null = null;
+    const target = findNode(tree, id);
 
-    const find = (nodes: TreeNodeType[]) => {
-      nodes.forEach((n) => {
-        if (n.id === id) target = n;
-        if (n.children) find(n.children);
-      });
-    };
+    if (!target) return;
 
-    find(tree);
-
-    if (target?.hasLazyChildren && !target.children?.length) {
+    if (target.hasLazyChildren && !target.children?.length) {
       const children = await fetchLazyChildren(id);
 
       setTree((prev) =>
