@@ -1,73 +1,66 @@
-# React + TypeScript + Vite
+# 🌳 Tree View Component — React + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **production-ready Tree View UI component** built using **React + TypeScript**, featuring recursive tree rendering, lazy loading, inline editing, and pixel-perfect hierarchical UI with connector lines.
 
-Currently, two official plugins are available:
+This project demonstrates real-world frontend engineering concepts such as immutable state updates, recursive data structures, async loading, and reusable component architecture.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Live Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+✅ Expand / Collapse Nodes  
+✅ Lazy Loading (Simulated Async API)  
+✅ Add Child Nodes  
+✅ Delete Nodes (Deletes Subtree)  
+✅ Inline Node Name Editing (Double Click → Edit → Enter/Blur Save)  
+✅ Dynamic Avatar Generation  
+✅ Pixel Perfect Tree Connector Lines (Dotted Vertical + Elbow Connectors)  
+✅ Recursive Tree Rendering  
+✅ Immutable State Updates  
+✅ Fully Responsive (Mobile + Tablet + Desktop)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🧠 Architecture Highlights
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Tree stored as recursive node structure  
+- Utility-driven tree updates (updateNode, deleteNode)  
+- Async lazy loading simulation using mock API  
+- Component-driven scalable structure  
+- CSS pseudo-elements used for connector lines (no extra DOM nodes)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠 Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- React
+- TypeScript
+- CSS (Custom — No UI Library)
+- Recursive Data Structures
+- Functional State Updates
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📂 Project Structure
+
+├ components
+│ ├ TreeNode.tsx
+│ ├ TreeView.tsx
+├ types
+│ ├ tree.types.ts
+├ utils
+│ ├ tree.utils.ts
+├ mock
+│ ├ lazyApi.ts
+├ styles
+│ ├ tree.css
+├ App.tsx
+
+
+## 📦 Installation
+
+```bash
+git clone <repo-url>
+cd treeviewQ1
+npm install
+npm run dev
